@@ -38,6 +38,7 @@ class Extension extends \Bolt\BaseExtension
     {
         // Config file to validate => schema file to use
         // TODO: scan extensions to see if any of them requests config validation
+        // they would be added to the above array with a key for extension name or something
         $tests = [
             ['config_file' => 'taxonomy.yml',     'schema_doc' => 'taxonomy_schema.yml'],
             ['config_file' => 'config.yml',       'schema_doc' => 'config_schema.yml'],
@@ -47,9 +48,6 @@ class Extension extends \Bolt\BaseExtension
             ['config_file' => 'permissions.yml',  'schema_doc' => 'permissions_schema.yml'],
             ['config_file' => 'routing.yml',      'schema_doc' => 'routing_schema.yml'],
         ];
-        
-        // they would be added to the above array with a key for extension name or something
-        $extensions = $this->app['extensions']->getEnabled();
 
         $yaml_parser = new Parser();
         $messages = [];
