@@ -24,24 +24,20 @@ class Extension extends \Bolt\BaseExtension
         $this->schemaDirectory = __DIR__ . '/schemas';
 
         $this->path = $this->app['config']->get('general/branding/path') . '/extensions/config-validator';
-        $this->app->match($this->path, [$this, 'ConfigValidator']); /*TODO: does it work if i use $this->configValidator?*/
+        $this->app->match($this->path, [$this, 'ConfigValidator']);
 
-        // add template namespace to twig
+        // Add template namespace to twig
         $this->app['twig.loader.filesystem']->addPath(__DIR__.'/views', 'ConfigValidator');
 
-        // add menu item
-        /* TODO: what's diff between
-            $this->app['resources']->getUrl('bolt')
-            and
-            $this->app['config']->get('genearal/branding/path')
-        ? */
+        // Add menu item
         $this->addMenuOption('Validate config files', $this->app['resources']->getUrl('bolt') . 'extensions/config-validator', 'fa:check');
 
     }
 
     public function ConfigValidator()
     {
-
+        // Config file to validate => schema file to use
+        // TODO: scan extensions to see if any of them requests config validation
         $tests = [
             ['config_file' => 'taxonomy.yml',     'schema_doc' => 'taxonomy_schema.yml'],
             ['config_file' => 'config.yml',       'schema_doc' => 'config_schema.yml'],
@@ -51,7 +47,7 @@ class Extension extends \Bolt\BaseExtension
             ['config_file' => 'permissions.yml',  'schema_doc' => 'permissions_schema.yml'],
             ['config_file' => 'routing.yml',      'schema_doc' => 'routing_schema.yml'],
         ];
-        // TODO: scan extensions to see if any of them requests config validation
+        
         // they would be added to the above array with a key for extension name or something
         $extensions = $this->app['extensions']->getEnabled();
 
@@ -80,7 +76,7 @@ class Extension extends \Bolt\BaseExtension
 
             } else {
                 try {
-                    // parse the config file if it was found
+                    // Parse the config file if it was found
                     $config_data = $yaml_parser->parse(file_get_contents($config_path));
 
                     if (! is_array($config_data)) {
@@ -98,7 +94,6 @@ class Extension extends \Bolt\BaseExtension
             }
         }
 
-        #return new Response($response);
         return new Response($this->app['twig']->render('@ConfigValidator/base.twig', [
             'messages' => $messages
         ]));
