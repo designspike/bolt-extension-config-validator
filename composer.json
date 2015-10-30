@@ -1,0 +1,27 @@
+{
+    "name": "designspike/bolt-extension-config-validator",
+    "description": "Adds a menu item to validate your Bolt config files",
+    "type": "bolt-extension",
+    "keywords": ["configuration", "utility", "debugging"],
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Will Hall",
+            "email": "will@designspike.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\DesignSpike\\ConfigValidator\\": [
+                ""
+            ],
+            "RomaricDrigon\\MetaYaml\\": "lib/RomaricDrigon/MetaYaml/"
+        }
+    }
+}

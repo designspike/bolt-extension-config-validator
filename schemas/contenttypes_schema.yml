@@ -1,0 +1,134 @@
+root:
+  _type: prototype
+  _prototype:
+    _type: array
+    _children: 
+      default_status:
+        _type: enum
+        _values: [publish, held, draft, timed]
+      description:
+        _type: text
+      fields:
+        _type: prototype
+        _required: true
+        _prototype:
+          _type: array
+          _children:
+            allowtwig:
+              _type: boolean
+            attrib:
+              _type: text
+            class:
+              _type: enum
+              _values: [narrow, wide, large]
+            error:
+              _type: text
+            default:
+              _type: text
+            extensions:
+              _type: prototype
+              _prototype:
+                _type: text
+            filter:
+              _type: text
+            group:
+              _type: text
+            height:
+              _type: text
+            index:
+              _type: boolean
+            info:
+              _type: text
+            label:
+              _type: text
+            pattern:
+              _type: text
+            prefix:
+              _type: text
+            postfix:
+              _type: text
+            readonly:
+              _type: boolean
+            required:
+              _type: boolean
+            type:
+              _type: enum
+              _values:
+                - text
+                - slug
+                - templateselect
+                - image
+                - imagelist
+                - file
+                - filelist
+                - html
+                - markdown
+                - textarea
+                - select
+                - checkbox
+                - video
+                - geolocation
+                - date
+                - datetime
+                - integer
+                - float
+            upload:
+              _type: text
+            uses:
+              _type: text
+            variant:
+              _type: enum
+              _value: [inline]
+      icon_many:
+        _type: text
+      icon_one:
+        _type: text
+      name:
+        _type: text
+        _required: true
+      listing_template:
+        _type: text
+      listing_records:
+        _type: number
+      listing_sort:
+        _type: text
+      record_template:
+        _type: text
+      recordsperpage:
+        _type: number
+      relations:
+        _type: prototype
+        _required: false
+        _prototype:
+          _type: array
+          _children:
+            multiple:
+              _type: boolean
+            order:
+              _type: text
+            label:
+              _type: text
+      searchable:
+        _type: boolean
+      show_in_menu:
+        _type: boolean
+      singular_name:
+        _type: text
+        _required: true
+      singular_slug:
+        _type: text
+      slug:
+        _type: text
+      sort:
+        _type: text
+      taxonomy:
+        _type: prototype
+        _prototype:
+          _type: text
+      title_format:
+        _type:
+        _type: prototype
+        _prototype:
+          _type: text
+      viewless:
+        _type: boolean

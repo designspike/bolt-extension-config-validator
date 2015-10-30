@@ -1,0 +1,92 @@
+root:
+  _type: prototype
+  _prototype:
+    _type: choice
+    _choices:
+
+      roles-but-name-isnt-enforced-here:
+        _type: prototype
+        _prototype:
+          _type: array
+          _children:
+            description:
+              _type: text
+            label:
+              _type: text
+
+      global-but-name-isnt-enforced-here:
+        _type: prototype
+        _prototype:
+          _type: prototype
+          _prototype:
+            _type: text
+
+      contenttype-perms-but-name-isnt-enforced-here:
+        _type: array
+        _children:
+          edit:
+            _type: prototype
+            _prototype:
+              _type: text
+          create:
+            _type: prototype
+            _prototype:
+              _type: text
+          publish:
+            _type: prototype
+            _prototype:
+              _type: text
+          depublish:
+            _type: prototype
+            _prototype:
+              _type: text
+          delete:
+            _type: prototype
+            _prototype:
+              _type: text
+          change-ownership:
+            _type: prototype
+            _prototype:
+              _type: text
+          view:
+            _type: prototype
+            _prototype:
+              _type: text
+          frontend:
+            _type: prototype
+            _prototype:
+              _type: text
+
+      contenttypes-list-but-name-isnt-enforced-here:
+        _type: prototype
+        _prototype:
+          _type: array
+          _children:
+            edit:
+              _type: prototype
+              _prototype:
+                _type: text
+            create:
+              _type: prototype
+              _prototype:
+                _type: text
+            publish:
+              _type: prototype
+              _prototype:
+                _type: text
+            depublish:
+              _type: prototype
+              _prototype:
+                _type: text
+            delete:
+              _type: prototype
+              _prototype:
+                _type: text
+            view:
+              _type: prototype
+              _prototype:
+                _type: text
+            frontend:
+              _type: prototype
+              _prototype:
+                _type: text

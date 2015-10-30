@@ -1,0 +1,28 @@
+root:
+  _type: prototype
+  _prototype:
+    _type: partial
+    _partial: menu
+
+partials:
+  menu:
+    _type: prototype
+    _prototype:
+      _type: partial
+      _partial: menunode
+  menunode:
+    _type: array
+    _children:
+      class:
+        _type: text
+      label:
+        _type: text
+      link:
+        _type: text
+      path:
+        _type: text
+      submenu:
+        _type: prototype
+        _prototype:
+          _type: partial
+          _partial: menunode

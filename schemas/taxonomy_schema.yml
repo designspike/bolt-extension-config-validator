@@ -1,0 +1,36 @@
+root:
+  _type: prototype
+  _prototype:
+    _type: array
+    _children:
+      allow_spaces:
+        _type: boolean
+      autocomplete:
+        _type: boolean
+      behaves_like:
+        _type: enum
+        _values: [categories, grouping, tags]
+      has_sortorder:
+        _type: boolean
+      height:
+        _type: text
+      listing_template:
+        _type: text
+      multiple:
+        _type: boolean
+      name:
+        _type: text
+      options:
+        _type: prototype
+        _prototype:
+          _type: text
+      postfix:
+        _type: text
+      singular_name:
+        _type: text
+      singular_slug:
+        _type: text
+      slug:
+        _type: text
+      tagcloud:
+        _type: boolean

@@ -1,0 +1,257 @@
+root:
+  _type: array
+  _children:
+    database:
+      _type: array
+      _children:
+        driver:
+          _type: enum
+          _values: [sqlite, mysql, postgres]
+        databasename:
+          _type: text
+        username:
+          _type: text
+        password:
+          _type: text
+        host:
+          _type: text
+    sitename:
+      _type: text
+    payoff:
+      _type: text
+    theme:
+      _type: text
+    locale:
+      _type: text
+    timezone:
+      _type: text
+    maintenance_mode:
+      _type: text
+    maintenance_template:
+      _type: text
+    cron_hour:
+      _type: number
+    canonical:
+      _type: text
+    favicon:
+      _type: text
+    homepage:
+      _type: text
+    homepage_template:
+      _type: text
+    notfound:
+      _type: text
+    access_denied:
+      _type: text
+    record_template:
+      _type: text
+    listing_template:
+      _type: text
+    listing_records:
+      _type: number
+    listing_sort:
+      _type: text
+    taxonomy_sort:
+      _type: text
+    search_results_template:
+      _type: text
+    search_results_records:
+      _type: number
+    add_jquery:
+      _type: text
+    recordsperpage:
+      _type: number
+    caching:
+      _type: array
+      _children:
+        config:
+          _type: boolean
+        templates:
+          _type: boolean
+        request:
+          _type: boolean
+        duration:
+          _type: number
+        authenticated:
+          _type: boolean
+    changelog:
+      _type: array
+      _children:
+        enabled:
+          _type: boolean
+    thumbnails:
+      _type: array
+      _children:
+        default_thumbnail:
+          _type: prototype
+          _prototype:
+            _type: number
+        default_image:
+          _type: prototype
+          _prototype:
+            _type: number
+        quality:
+          _type: number
+        cropping:
+          _type: enum
+          _values: [crop, fit, borders, resize]
+        notfound_image:
+          _type: text
+        error_image:
+          _type: text
+        save_files:
+          _type: boolean
+        allow_upscale:
+          _type: boolean
+        exif_orientation:
+          _type: boolean
+        browser_cache_time:
+          _type: number
+    accept_file_types:
+      _type: prototype
+      _prototype:
+        _type: text
+    branding:
+      _type: array
+      _children:
+        name:
+          _type: text
+        provided_by:
+          _type: array
+          _children:
+            0:
+              _type: text
+            1:
+              _type: text
+        path:
+          _type: text
+    debug:
+      _type: text
+    developer_notices:
+      _type: boolean
+    debug_show_loggedoff:
+      _type: boolean
+    debug_permission_audit_mode:
+      _type: boolean
+    debug_error_level:
+      _type: number
+    debug_enable_whoops:
+      _type: boolean
+    strict_variables:
+      _type: boolean
+    wysiwyg:
+      _type: array
+      _children:
+        images:
+          _type: boolean
+        anchor:
+          _type: boolean
+        tables:
+          _type: boolean
+        fontcolor:
+          _type: boolean
+        align:
+          _type: boolean
+        subsuper:
+          _type: boolean
+        embed:
+          _type: boolean
+        underline:
+          _type: boolean
+        strike:
+          _type: boolean
+        blockquote:
+          _type: boolean
+        codesnippet:
+          _type: boolean
+        specialchar:
+          _type: boolean
+        ck:
+          _type: array
+          _children:
+            allowedContent:
+              _type: boolean
+            autoParagraph:
+              _type: boolean
+            disableNativeSpellChecker:
+              _type: boolean
+            viewSourceRoles:
+              _type: prototype
+              _prototype:
+                _type: text
+    mailoptions:
+      _type: array
+      _children:
+        host:
+          _type: text
+        port:
+          _type: number
+        username:
+          _type: text
+        password:
+          _type: text
+        encryption:
+          _type: text
+        auth_mode:
+          _type: text
+    cookies_use_remoteaddr:
+      _type: boolean
+    cookies_use_browseragent:
+      _type: boolean
+    cookies_use_httphost:
+      _type: boolean
+    cookies_https_only:
+      _type: boolean
+    cookies_lifetime:
+      _type: number
+    cookies_domain:
+      _type: text
+    session_use_storage_handler:
+      _type: boolean
+    hash_strength:
+      _type: number
+    extensions:
+      _type: array
+      _children:
+        site:
+          _type: text
+        stability:
+          _type: enum
+          _values: [stable, dev]
+    enforce_ssl:
+      _type: boolean
+    trustProxies:
+      _type: prototype
+      _prototype:
+        _type: text
+    theme_path:
+      _type: text
+    httpProxy:
+      _type: array
+      _children:
+        host:
+          _type: text
+        user:
+          _type: text
+        password:
+          _type: text
+    grunt:
+      _type: array
+      _children:
+        livereload:
+          _type: boolean
+        livereloadport:
+          _type: number
+    backend:
+      _type: array
+      _children:
+        news:
+          _type: array
+          _children:
+            disable:
+              _type: boolean
+        stack:
+          _type: array
+          _children:
+            disable:
+              _type: boolean

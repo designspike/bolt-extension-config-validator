@@ -1,0 +1,28 @@
+root:
+  _type: prototype
+  _prototype:
+    _type: array
+    _children:
+      defaults:
+        _type: array
+        _children:
+          _after:
+            _type: text
+          _before:
+            _type: text
+          _controller:
+            _type: text
+          contenttypeslug:
+            _type: text
+          slug:
+            _type: text
+          template:
+            _type: text
+      contenttype:
+        _type: text
+      path:
+        _type: text
+      requirements:
+        _type: prototype
+        _prototype:
+          _type: text
