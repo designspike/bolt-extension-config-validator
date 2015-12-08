@@ -69,7 +69,7 @@ class Extension extends \Bolt\BaseExtension
                 $this->app['session']->getFlashBag()->add('warning',
                     $test['config_file'] . " doesn't exist (" . $config_path . ")");
 
-            } else if (file_exists($config_path) and ! is_writable($config_path)) {
+            } else if (file_exists($config_path) and ! is_readable($config_path)) {
 
                 $this->app['session']->getFlashBag()->add('error',
                     $test['config_file'] . " exists but isn't readable (" . $config_path . ")");
