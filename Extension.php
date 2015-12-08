@@ -50,7 +50,6 @@ class Extension extends \Bolt\BaseExtension
         ];
 
         $yaml_parser = new Parser();
-        $messages = [];
         foreach ($tests as $test) {
             // Create yaml validator based on a yaml schema document
             $schema_path = $this->schemaDirectory . '/' . $test['schema_doc'];
@@ -92,9 +91,7 @@ class Extension extends \Bolt\BaseExtension
             }
         }
 
-        return new Response($this->app['twig']->render('@ConfigValidator/base.twig', [
-            'messages' => $messages
-        ]));
+        return new Response($this->app['twig']->render('@ConfigValidator/base.twig'));
     }
 
     public function getName()
