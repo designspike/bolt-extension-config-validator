@@ -4,9 +4,10 @@
     "type": "bolt-extension",
     "keywords": ["configuration", "utility", "debugging"],
     "require": {
-        "bolt/bolt": ">=2.0.0,<3.0.0"
+        "bolt/bolt": "^3.0"
     },
     "license": "MIT",
+    "minimum-stability": "beta",
     "authors": [
         {
             "name": "Will Hall",
@@ -14,14 +15,12 @@
         }
     ],
     "autoload": {
-        "files": [
-            "init.php"
-        ],
         "psr-4": {
-            "Bolt\\Extension\\DesignSpike\\ConfigValidator\\": [
-                ""
-            ],
+            "Bolt\\Extension\\DesignSpike\\ConfigValidator\\": "src",
             "RomaricDrigon\\MetaYaml\\": "lib/RomaricDrigon/MetaYaml/"
         }
+    },
+    "extra": {
+        "bolt-class": "Bolt\\Extension\\DesignSpike\\ConfigValidator\\ConfigValidatorExtension"
     }
 }
