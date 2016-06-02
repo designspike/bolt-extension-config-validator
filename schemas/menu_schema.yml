@@ -21,6 +21,8 @@ partials:
         _type: text
       path:
         _type: text
+      title:
+        _type: text
       submenu:
         _type: prototype
         _prototype:

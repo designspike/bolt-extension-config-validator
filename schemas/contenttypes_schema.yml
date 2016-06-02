@@ -9,76 +9,8 @@ root:
       description:
         _type: text
       fields:
-        _type: prototype
-        _required: true
-        _prototype:
-          _type: array
-          _children:
-            allowtwig:
-              _type: boolean
-            attrib:
-              _type: text
-            class:
-              _type: enum
-              _values: [narrow, wide, large]
-            error:
-              _type: text
-            default:
-              _type: text
-            extensions:
-              _type: prototype
-              _prototype:
-                _type: text
-            filter:
-              _type: text
-            group:
-              _type: text
-            height:
-              _type: text
-            index:
-              _type: boolean
-            info:
-              _type: text
-            label:
-              _type: text
-            pattern:
-              _type: text
-            prefix:
-              _type: text
-            postfix:
-              _type: text
-            readonly:
-              _type: boolean
-            required:
-              _type: boolean
-            type:
-              _type: enum
-              _values:
-                - text
-                - slug
-                - templateselect
-                - image
-                - imagelist
-                - file
-                - filelist
-                - html
-                - markdown
-                - textarea
-                - select
-                - checkbox
-                - video
-                - geolocation
-                - date
-                - datetime
-                - integer
-                - float
-            upload:
-              _type: text
-            uses:
-              _type: text
-            variant:
-              _type: enum
-              _value: [inline]
+        _type: partial
+        _partial: fieldlist
       icon_many:
         _type: text
       icon_one:
@@ -108,6 +40,10 @@ root:
               _type: text
             label:
               _type: text
+            format:
+              _type: text
+            postfix:
+              _type: text
       searchable:
         _type: boolean
       show_in_menu:
@@ -132,3 +68,107 @@ root:
           _type: text
       viewless:
         _type: boolean
+      show_on_dashboard:
+        _type: boolean
+
+partials:
+  fieldlist:
+    _type: prototype
+    _prototype:
+      _type: array
+      _children:
+        allowtwig:
+          _type: boolean
+        attrib:
+          _type: text
+        class:
+          _type: enum
+          _values: [narrow, wide, large]
+        error:
+          _type: text
+        default:
+          _type: text
+        extensions:
+          _type: prototype
+          _prototype:
+            _type: text
+        filter:
+          _type: text
+        group:
+          _type: text
+        height:
+          _type: text
+        index:
+          _type: boolean
+        info:
+          _type: text
+        label:
+          _type: text
+        placeholder:
+          _type: text
+        pattern:
+          _type: text
+        prefix:
+          _type: text
+        postfix:
+          _type: text
+        readonly:
+          _type: boolean
+        required:
+          _type: boolean
+        type:
+          _type: enum
+          _values:
+            - text
+            - slug
+            - templateselect
+            - image
+            - imagelist
+            - file
+            - filelist
+            - html
+            - markdown
+            - textarea
+            - select
+            - checkbox
+            - video
+            - geolocation
+            - date
+            - datetime
+            - integer
+            - float
+            - repeater
+        upload:
+          _type: text
+        uses:
+          _type: choice
+          _choices:
+            sometext:
+              _type: text
+            somearray:
+              _type: prototype
+              _prototype:
+                _type: text
+        variant:
+          _type: enum
+          _values: [inline]
+        values:
+          _type: choice
+          _choices:
+            sometext:
+              _type: text
+            somearray:
+              _type: prototype
+              _prototype:
+                _type: text
+        multiple:
+          _type: boolean
+        autocomplete:
+          _type: boolean
+        sort:
+          _type: text
+        fields:
+          _type: partial
+          _partial: fieldlist
+        limit:
+          _type: number

@@ -74,6 +74,8 @@ root:
           _type: number
         authenticated:
           _type: boolean
+        thumbnails:
+          _type: boolean
     changelog:
       _type: array
       _children:
@@ -166,6 +168,8 @@ root:
           _type: boolean
         specialchar:
           _type: boolean
+        ruler:
+          _type: boolean
         ck:
           _type: array
           _children:
@@ -179,6 +183,8 @@ root:
               _type: prototype
               _prototype:
                 _type: text
+            allowNbsp:
+                _type: boolean
     mailoptions:
       _type: array
       _children:
@@ -218,6 +224,8 @@ root:
         stability:
           _type: enum
           _values: [stable, dev]
+        enabled:
+          _type: boolean
     enforce_ssl:
       _type: boolean
     trustProxies:
@@ -255,3 +263,26 @@ root:
           _children:
             disable:
               _type: boolean
+    htmlcleaner:
+      _type: array
+      _children:
+        allowed_tags:
+          _type: prototype
+          _prototype:
+            _type: text
+        allowed_attributes:
+          _type: prototype
+          _prototype:
+            _type: text
+    debuglog:
+      _type: array
+      _children:
+        enabled:
+          _type: boolean
+        filename:
+          _type: text
+        level:
+          _type: enum
+          _values: [DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY]
+    liveeditor:
+      _type: boolean
