@@ -3,6 +3,7 @@
 namespace Bolt\Extension\DesignSpike\ConfigValidator;
 
 use Bolt\Extension\SimpleExtension;
+use RomaricDrigon\MetaYaml\Exception\NodeValidatorException;
 use RomaricDrigon\MetaYaml\MetaYaml;
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\HttpFoundation\Response;
@@ -75,23 +76,26 @@ class ConfigValidatorExtension extends SimpleExtension
                     $test['config_file'] . " exists but isn't readable (" . $config_path . ")");
 
             } else {
-                try {
-                    // Parse the config file if it was found
-                    $config_data = $yaml_parser->parse(file_get_contents($config_path));
+            try {
+                // Parse the config file if it was found
+                $config_data = $yaml_parser->parse(file_get_contents($config_path));
 
-                    if (! is_array($config_data)) {
-                        throw new \UnexpectedValueException($test['config_file'] . " was read, but couldn't be parsed.");
-                    }
-                    // Try and validate the config
-                    $result = $validator->validate($config_data);
-                    if ($result === true) {
-                        $app['session']->getFlashBag()->add('success', $test['config_file'] . ' valid.');
-                    }
-                } catch (\Exception $e) {
-                    $app['session']->getFlashBag()->add('error',
-                        $test['config_file'] . ' is invalid: ' . $e->getMessage());
+                if (! is_array($config_data)) {
+                    throw new \UnexpectedValueException($test['config_file'] . " was read, but couldn't be parsed.");
                 }
+                // Try and validate the config
+                $result = $validator->validate($config_data);
+                if ($result === true) {
+                    $app['session']->getFlashBag()->add('success', $test['config_file'] . ' valid.');
+                }
+            } catch (NodeValidatorException $e) {
+                $app['session']->getFlashBag()->add('error',
+                    $test['config_file'] . ' is invalid: ' . $e->getMessage() . ' (Node path: ' . $e->getNodePath() . ')');
+            } catch (\Exception $e) {
+                $app['session']->getFlashBag()->add('error',
+                    $test['config_file'] . ' is invalid: ' . $e->getMessage());
             }
+        }
         }
 
         return new Response($app['twig']->render('@ConfigValidator/base.twig'));
