@@ -1,92 +1,159 @@
 root:
-  _type: prototype
-  _prototype:
-    _type: choice
-    _choices:
+  _type: array
+  _children:
 
-      roles-but-name-isnt-enforced-here:
-        _type: prototype
-        _prototype:
-          _type: array
-          _children:
-            description:
-              _type: text
-            label:
-              _type: text
-
-      global-but-name-isnt-enforced-here:
-        _type: prototype
-        _prototype:
-          _type: prototype
-          _prototype:
-            _type: text
-
-      contenttype-perms-but-name-isnt-enforced-here:
+    roles:
+      _type: prototype
+      _prototype:
         _type: array
         _children:
-          edit:
-            _type: prototype
-            _prototype:
-              _type: text
-          create:
-            _type: prototype
-            _prototype:
-              _type: text
-          publish:
-            _type: prototype
-            _prototype:
-              _type: text
-          depublish:
-            _type: prototype
-            _prototype:
-              _type: text
-          delete:
-            _type: prototype
-            _prototype:
-              _type: text
-          change-ownership:
-            _type: prototype
-            _prototype:
-              _type: text
-          view:
-            _type: prototype
-            _prototype:
-              _type: text
-          frontend:
-            _type: prototype
-            _prototype:
-              _type: text
+          description:
+            _type: text
+          label:
+            _type: text
 
-      contenttypes-list-but-name-isnt-enforced-here:
-        _type: prototype
-        _prototype:
-          _type: array
-          _children:
-            edit:
-              _type: prototype
-              _prototype:
-                _type: text
-            create:
-              _type: prototype
-              _prototype:
-                _type: text
-            publish:
-              _type: prototype
-              _prototype:
-                _type: text
-            depublish:
-              _type: prototype
-              _prototype:
-                _type: text
-            delete:
-              _type: prototype
-              _prototype:
-                _type: text
-            view:
-              _type: prototype
-              _prototype:
-                _type: text
-            frontend:
-              _type: prototype
-              _prototype:
-                _type: text
+    roles-hierarchy:
+      _type: array
+      _children:
+        manipulate:
+          _type: prototype
+          _prototype:
+            _type: partial
+            _partial: rolelist
+
+    global:
+      _type: array
+      _children:
+        about:
+            _type: partial
+            _partial: rolelist
+        clearcache:
+            _type: partial
+            _partial: rolelist
+        contentaction:
+            _type: partial
+            _partial: rolelist
+        dashboard:
+            _type: partial
+            _partial: rolelist
+        dbcheck:
+            _type: partial
+            _partial: rolelist
+        dbupdate:
+            _type: partial
+            _partial: rolelist
+        dbupdate_result:
+            _type: partial
+            _partial: rolelist
+        extensions:
+            _type: partial
+            _partial: rolelist
+        extensions:config:
+            _type: partial
+            _partial: rolelist
+        fileedit:
+            _type: partial
+            _partial: rolelist
+        files:config:
+            _type: partial
+            _partial: rolelist
+        files:theme:
+            _type: partial
+            _partial: rolelist
+        files:uploads:
+            _type: partial
+            _partial: rolelist
+        files:
+            _type: partial
+            _partial: rolelist
+        prefill:
+            _type: partial
+            _partial: rolelist
+        profile:
+            _type: partial
+            _partial: rolelist
+        settings:
+            _type: partial
+            _partial: rolelist
+        translation:
+            _type: partial
+            _partial: rolelist
+        useraction:
+            _type: partial
+            _partial: rolelist
+        useredit:
+            _type: partial
+            _partial: rolelist
+        users:
+            _type: partial
+            _partial: rolelist
+        roles:
+            _type: partial
+            _partial: rolelist
+        maintenance-mode:
+            _type: partial
+            _partial: rolelist
+        omnisearch:
+            _type: partial
+            _partial: rolelist
+        changelog:
+            _type: partial
+            _partial: rolelist
+        systemlog:
+            _type: partial
+            _partial: rolelist
+        login:
+            _type: partial
+            _partial: rolelist
+        postLogin:
+            _type: partial
+            _partial: rolelist
+        logout:
+            _type: partial
+            _partial: rolelist
+
+    contenttype-all:
+      _type: partial
+      _partial: contentpermissions
+
+    contenttype-default:
+      _type: partial
+      _partial: contentpermissions
+
+    contenttypes:
+      _type: prototype
+      _prototype:
+        _type: partial
+        _partial: contentpermissions
+
+partials:
+
+  rolelist:
+    _type: prototype
+    _prototype:
+      _type: text
+
+  contentpermissions:
+    _type: array
+    _children:
+      edit:
+        _type: partial
+        _partial: rolelist
+      create:
+        _type: partial
+        _partial: rolelist
+      publish:
+        _type: partial
+        _partial: rolelist
+      depublish:
+        _type: partial
+        _partial: rolelist
+      delete:
+        _type: partial
+        _partial: rolelist
+      change-ownership:
+        _type: partial
+        _partial: rolelist
+      view:
+        _type: partial
+        _partial: rolelist
