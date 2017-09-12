@@ -22,7 +22,11 @@ root:
     theme:
       _type: text
     locale:
-      _type: text
+      _type: array
+      _children:
+        en_GB:
+          _type: text
+      _ignore_extra_keys: true
     timezone:
       _type: text
     maintenance_mode:
@@ -76,6 +80,8 @@ root:
           _type: boolean
         thumbnails:
           _type: boolean
+        translations:
+          _type: boolean
     changelog:
       _type: array
       _children:
@@ -107,6 +113,8 @@ root:
           _type: boolean
         exif_orientation:
           _type: boolean
+        only_aliases:
+          _type: boolean
         browser_cache_time:
           _type: number
     accept_file_types:
@@ -137,7 +145,13 @@ root:
       _type: boolean
     debug_error_level:
       _type: number
-    debug_enable_whoops:
+    debug_error_use_symfony:
+      _type: boolean
+    debug_trace_argument_limit:
+      _type: number
+    production_error_level:
+      _type: number
+    debug_enable_whoops: # Deprecated since 3.2, to be removed in 4.0
       _type: boolean
     strict_variables:
       _type: boolean
@@ -286,3 +300,8 @@ root:
           _values: [DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY]
     liveeditor:
       _type: boolean
+    compatibility:
+      _type: array
+      _children:
+        template_view:
+          _type: boolean
