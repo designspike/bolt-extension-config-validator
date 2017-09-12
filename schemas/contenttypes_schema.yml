@@ -5,7 +5,7 @@ root:
     _children: 
       default_status:
         _type: enum
-        _values: [publish, held, draft, timed]
+        _values: [published, held, draft, timed]
       description:
         _type: text
       fields:
