@@ -4,9 +4,9 @@ Validate your Bolt CMS config files according to schemas.
 
 ## Details
 
-This extension adds a menu item at *Extras > Validate config files*.
+This extension adds a menu item at *Extensions > Validate config files*.
 
-When you clidk the link, you'll see a page with validation results spitting out stuff like this:
+When you click the link, you'll see a page with validation results spitting out stuff like this:
 
 ```
  * contenttypes.yml is invalid: The node 'root.entries' has not allowed extra key(s): singular_slog
