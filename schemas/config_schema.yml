@@ -120,6 +120,15 @@ root:
           _type: boolean
         browser_cache_time:
           _type: number
+    upload:
+      _type: array
+      _children:
+        pattern:
+          _type: text
+        replacement:
+          _type: text
+        lowercase:
+          _type: boolean
     accept_file_types:
       _type: prototype
       _prototype:
@@ -137,6 +146,10 @@ root:
             1:
               _type: text
         path:
+          _type: text
+        news_source:
+          _type: text
+        news_variable:
           _type: text
     debug:
       _type: text
@@ -217,6 +230,14 @@ root:
           _type: text
         auth_mode:
           _type: text
+        transport:
+          _type: text
+        senderMail:
+          _type: text
+        senderName:
+          _type: text
+        spool:
+          _type: boolean
     cookies_use_remoteaddr:
       _type: boolean
     cookies_use_browseragent:
@@ -233,16 +254,37 @@ root:
       _type: boolean
     hash_strength:
       _type: number
+    headers:
+      _type: array
+      _children:
+        x_frame_options:
+          _type: boolean
     extensions:
       _type: array
       _children:
         site:
           _type: text
-        stability:
-          _type: enum
-          _values: [stable, dev]
         enabled:
           _type: boolean
+        composer:
+          _type: array
+          _children:
+            minimum-stability:
+              _type: enum
+              _values: [stable, beta, dev]
+            prefer-stable:
+              _type: boolean
+            prefer-dist:
+              _type: boolean
+            prefer-source:
+              _type: boolean
+            config:
+              _type: array
+              _children:
+                optimize-autoloader:
+                  _type: boolean
+                classmap-authoritative:
+                  _type: boolean
     enforce_ssl:
       _type: boolean
     trustProxies:
@@ -301,6 +343,8 @@ root:
         level:
           _type: enum
           _values: [DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY]
+    google_api_key:
+      _type: text
     liveeditor:
       _type: boolean
     compatibility:
