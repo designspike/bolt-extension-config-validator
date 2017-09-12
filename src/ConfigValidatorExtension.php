@@ -35,7 +35,7 @@ class ConfigValidatorExtension extends SimpleExtension
 
     protected function registerBackendRoutes(ControllerCollection $collection)
     {
-        $collection->match("/extend/config-validator", [$this, 'callbackConfigValidator']);
+        $collection->match("/extensions/config-validator", [$this, 'callbackConfigValidator']);
     }
 
     public function callbackConfigValidator(Application $app)
