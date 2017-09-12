@@ -22,11 +22,14 @@ root:
     theme:
       _type: text
     locale:
-      _type: array
-      _children:
-        en_GB:
+      _type: choice
+      _choices:
+        sometext:
           _type: text
-      _ignore_extra_keys: true
+        somearray:
+          _type: prototype
+          _prototype:
+            _type: text
     timezone:
       _type: text
     maintenance_mode:
